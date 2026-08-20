@@ -1,0 +1,45 @@
+---
+interface AccordionItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: readonly AccordionItem[];
+  name: string;
+}
+
+const { items, name } = Astro.props;
+---
+
+<div class="space-y-3">
+  {
+    items.map((item) => (
+      <details
+        name={name}
+        class="group rounded-2xl border border-sage/20 bg-warm-white open:border-sage/40"
+      >
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 marker:content-none">
+          <span class="font-heading text-xl text-text">{item.title}</span>
+          <span
+            class="shrink-0 text-sage transition-transform group-open:rotate-180"
+            aria-hidden="true"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </summary>
+        <div class="border-t border-sage/10 px-6 pb-5 pt-4">
+          <p class="leading-relaxed text-text-muted">{item.description}</p>
+        </div>
+      </details>
+    ))
+  }
+</div>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

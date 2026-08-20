@@ -1,12 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Accordion from '../components/Accordion.astro';
+import { site } from '../config/site.ts';
+import { faqs } from '../content/faqs.ts';
 ---
 
-<BaseLayout title="FAQs">
-  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-    <h1 class="text-4xl sm:text-5xl">Frequently Asked Questions</h1>
-    <p class="mt-6 text-lg text-text-muted">
-      Content coming soon — insurance, session length, virtual therapy, and more.
-    </p>
+<BaseLayout
+  title="FAQs"
+  description={`Common questions about therapy with ${site.name} — insurance, sessions, virtual therapy, and what to expect.`}
+>
+  <!-- Hero -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+      <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">Questions & Answers</p>
+      <h1 class="text-4xl sm:text-5xl">{faqs.hero.title}</h1>
+      <p class="mt-6 text-lg leading-relaxed text-text-muted">{faqs.hero.intro}</p>
+    </div>
+  </section>
+
+  <!-- FAQ accordion -->
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+    <Accordion items={faqs.items} name="faqs" />
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+      <h2 class="text-3xl sm:text-4xl">{faqs.cta.title}</h2>
+      <p class="mt-4 text-lg text-text-muted">{faqs.cta.text}</p>
+      <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <Button href={site.calendlyUrl} size="lg">
+          {site.cta.label}
+        </Button>
+        <Button href="/contact" variant="secondary" size="lg">
+          Contact Me
+        </Button>
+      </div>
+    </div>
   </section>
 </BaseLayout>

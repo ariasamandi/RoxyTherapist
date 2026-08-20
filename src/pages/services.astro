@@ -1,12 +1,128 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Accordion from '../components/Accordion.astro';
+import { site } from '../config/site.ts';
+import { services } from '../content/services.ts';
 ---
 
-<BaseLayout title="Services">
-  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-    <h1 class="text-4xl sm:text-5xl">Services</h1>
-    <p class="mt-6 text-lg text-text-muted">
-      Content coming soon — individual therapy, couples therapy, and therapy approaches with accordion sections.
+<BaseLayout
+  title="Services"
+  description={`Individual and couples therapy with ${site.name}. Virtual sessions focused on anxiety, trauma, relationships, and lasting change.`}
+>
+  <!-- Hero -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+      <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">How I Can Help</p>
+      <h1 class="text-4xl sm:text-5xl">{services.hero.title}</h1>
+      <p class="mt-6 text-lg leading-relaxed text-text-muted">{services.hero.intro}</p>
+    </div>
+  </section>
+
+  <!-- Individual Therapy -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl sm:text-4xl">{services.individual.title}</h2>
+      <p class="mt-4 text-lg leading-relaxed text-text-muted">{services.individual.intro}</p>
+    </div>
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <h3 class="text-2xl">{services.individual.whoItsFor.title}</h3>
+        <ul class="mt-5 space-y-3">
+          {
+            services.individual.whoItsFor.items.map((item) => (
+              <li class="flex gap-3 text-text-muted">
+                <span class="mt-1 shrink-0 text-sage" aria-hidden="true">✓</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl">{services.individual.helpsWith.title}</h3>
+        <ul class="mt-5 space-y-3">
+          {
+            services.individual.helpsWith.items.map((item) => (
+              <li class="flex gap-3 text-text-muted">
+                <span class="mt-1 shrink-0 text-sage" aria-hidden="true">✓</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Couples Therapy -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-3xl sm:text-4xl">{services.couples.title}</h2>
+        <p class="mt-4 text-lg leading-relaxed text-text-muted">{services.couples.intro}</p>
+      </div>
+
+      <ul class="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          services.couples.topics.map((topic) => (
+            <li class="rounded-2xl border border-sage/20 bg-warm-white p-6">
+              <h3 class="text-xl">{topic.title}</h3>
+              <p class="mt-2 leading-relaxed text-text-muted">{topic.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Specialties -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="text-3xl sm:text-4xl">{services.specialties.title}</h2>
+      <p class="mt-4 text-lg text-text-muted">{services.specialties.intro}</p>
+    </div>
+
+    <ul class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-3">
+      {
+        services.specialties.items.map((item) => (
+          <li class="rounded-full border border-sage/25 bg-cream px-5 py-2.5 text-text-muted">
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mx-auto mt-8 max-w-xl text-center text-sm text-text-muted">
+      Want more detail?
+      <a href="/specialties" class="text-terracotta underline-offset-2 hover:underline">
+        Explore specialties
+      </a>
     </p>
+  </section>
+
+  <!-- Therapy Approaches -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+      <h2 class="text-3xl sm:text-4xl">{services.approaches.title}</h2>
+      <p class="mt-4 text-lg text-text-muted">{services.approaches.intro}</p>
+
+      <div class="mt-10">
+        <Accordion items={services.approaches.items} name="therapy-approaches" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+    <h2 class="text-3xl sm:text-4xl">{services.cta.title}</h2>
+    <p class="mt-4 text-lg text-text-muted">{services.cta.text}</p>
+    <div class="mt-8">
+      <Button href={site.calendlyUrl} size="lg">
+        Schedule a Free 15-Minute Consultation
+      </Button>
+    </div>
   </section>
 </BaseLayout>

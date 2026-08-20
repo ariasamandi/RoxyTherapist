@@ -2,37 +2,68 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import { site } from '../config/site.ts';
+import { contact } from '../content/contact.ts';
 ---
 
-<BaseLayout title="Contact">
-  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-    <h1 class="text-4xl sm:text-5xl">Contact</h1>
-    <p class="mt-6 text-lg text-text-muted">
-      Reach out to schedule a consultation or ask a question.
-    </p>
+<BaseLayout
+  title="Contact"
+  description={`Contact ${site.name} to schedule a virtual therapy consultation. Phone, email, and online booking available.`}
+>
+  <section class="bg-cream">
+    <div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div
+        class="flex aspect-[3/4] max-w-md items-center justify-center rounded-2xl bg-dusty-blue/20 lg:mx-auto lg:w-full"
+        role="img"
+        aria-label={`Photo of ${site.name}`}
+      >
+        <p class="px-6 text-center text-sm text-text-muted">Professional photo</p>
+      </div>
 
-    <ul class="mt-10 space-y-4 text-text-muted">
-      <li>
-        <span class="font-medium text-text">Phone:</span>
-        <a href={`tel:${site.contact.phoneHref}`} class="ml-2 hover:text-terracotta">
-          {site.contact.phone}
-        </a>
-      </li>
-      <li>
-        <span class="font-medium text-text">Email:</span>
-        <a href={`mailto:${site.contact.email}`} class="ml-2 hover:text-terracotta">
-          {site.contact.email}
-        </a>
-      </li>
-      <li>
-        <span class="font-medium text-text">Location:</span>
-        <span class="ml-2">{site.contact.location}</span>
-      </li>
-    </ul>
+      <div>
+        <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">Get in Touch</p>
+        <h1 class="text-4xl sm:text-5xl">{contact.hero.title}</h1>
+        <p class="mt-6 text-lg leading-relaxed text-text-muted">{contact.hero.intro}</p>
 
-    <div class="mt-10">
+        <ul class="mt-10 space-y-6">
+          <li>
+            <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Phone</p>
+            <a
+              href={`tel:${site.contact.phoneHref}`}
+              class="mt-1 block text-xl text-text transition-colors hover:text-terracotta"
+            >
+              {site.contact.phone}
+            </a>
+          </li>
+          <li>
+            <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Email</p>
+            <a
+              href={`mailto:${site.contact.email}`}
+              class="mt-1 block text-xl text-text transition-colors hover:text-terracotta"
+            >
+              {site.contact.email}
+            </a>
+          </li>
+          <li>
+            <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Location</p>
+            <p class="mt-1 text-xl text-text">{site.contact.location}</p>
+          </li>
+        </ul>
+
+        <div class="mt-10">
+          <Button href={site.calendlyUrl} size="lg">
+            {site.cta.label}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+    <h2 class="text-3xl sm:text-4xl">{contact.cta.title}</h2>
+    <p class="mt-4 text-lg text-text-muted">{contact.cta.text}</p>
+    <div class="mt-8">
       <Button href={site.calendlyUrl} size="lg">
-        {site.cta.label}
+        Schedule a Free 15-Minute Consultation
       </Button>
     </div>
   </section>
