@@ -1,0 +1,87 @@
+---
+import Button from './Button.astro';
+import { site } from '../config/site.ts';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 border-b border-sage/15 bg-warm-white/95 backdrop-blur-sm"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+    <a href="/" class="font-heading text-2xl text-text transition-opacity hover:opacity-80">
+      {site.name}
+    </a>
+
+    <nav class="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
+      {
+        site.nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'text-sm transition-colors hover:text-terracotta',
+              currentPath === item.href ? 'font-medium text-terracotta' : 'text-text-muted',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <Button href={site.calendlyUrl} size="sm" class="hidden sm:inline-flex">
+        {site.cta.label}
+      </Button>
+
+      <button
+        type="button"
+        id="mobile-menu-button"
+        class="inline-flex items-center justify-center rounded-md p-2 text-text lg:hidden"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Open menu"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-sage/15 lg:hidden" aria-label="Mobile navigation">
+    <nav class="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
+      {
+        site.nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'rounded-md px-3 py-2 text-base transition-colors hover:bg-cream',
+              currentPath === item.href ? 'font-medium text-terracotta' : 'text-text-muted',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <div class="pt-3">
+        <Button href={site.calendlyUrl} size="md" class="w-full">
+          {site.cta.label}
+        </Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  button?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    button.setAttribute('aria-expanded', String(!isOpen));
+    button.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+  });
+</script>
