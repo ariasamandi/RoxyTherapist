@@ -4,6 +4,7 @@ import Button from '../components/Button.astro';
 import FloralAccent from '../components/FloralAccent.astro';
 import { site } from '../config/site.ts';
 import { contact } from '../content/contact.ts';
+import { roxyPhoto } from '../content/home.ts';
 ---
 
 <BaseLayout
@@ -15,12 +16,13 @@ import { contact } from '../content/contact.ts';
     <div class="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
       <div class="relative lg:mx-auto lg:w-full lg:max-w-md">
         <FloralAccent variant="blue" class="absolute -right-4 top-8 z-0 hidden sm:block" />
-        <div
-          class="surface-photo relative z-10 flex aspect-[3/4] items-center justify-center rounded-2xl"
-          role="img"
-          aria-label={`Photo of ${site.name}`}
-        >
-          <p class="px-6 text-center text-sm text-text-muted">Professional photo</p>
+        <div class="surface-photo relative z-10 aspect-[3/4] overflow-hidden rounded-2xl">
+          <img
+            src={roxyPhoto.src}
+            alt={roxyPhoto.alt}
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
         </div>
       </div>
 

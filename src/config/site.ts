@@ -4,7 +4,7 @@ export const site = {
   tagline: 'Helping you find healing, balance, and hope.',
   description:
     'Therapy for individuals and couples ready to create meaningful change. Virtual sessions available.',
-  url: 'https://roxytherapist.com',
+  url: import.meta.env.PUBLIC_SITE_URL ?? 'https://roxytherapist.com',
 
   calendlyUrl:
     import.meta.env.PUBLIC_CALENDLY_URL ?? 'https://calendly.com/roxylcsw',

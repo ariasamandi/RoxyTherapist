@@ -3,9 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import FloralAccent from '../components/FloralAccent.astro';
 import { site } from '../config/site.ts';
+import { home, roxyPhoto } from '../content/home.ts';
 ---
 
-<BaseLayout>
+<BaseLayout
+  description={`${site.name} offers virtual therapy for individuals and couples. Schedule a free consultation today.`}
+>
+  <!-- Hero -->
   <section class="surface-cream relative overflow-hidden">
     <FloralAccent variant="lavender" class="absolute right-8 top-12 hidden sm:block lg:right-16" />
     <FloralAccent variant="pink" class="absolute bottom-16 left-6 hidden md:block lg:left-12" />
@@ -31,19 +35,143 @@ import { site } from '../config/site.ts';
       <div class="relative">
         <FloralAccent variant="blue" class="absolute -left-4 bottom-8 z-0 hidden sm:block" />
         <FloralAccent variant="yellow" class="absolute -right-2 top-4 z-0 hidden sm:block" />
-        <div
-          class="surface-photo relative z-10 flex aspect-[4/3] items-center justify-center rounded-2xl text-text-muted"
-          aria-hidden="true"
-        >
-          <p class="px-6 text-center text-sm">Hero image placeholder</p>
+        <div class="surface-photo relative z-10 aspect-[4/3] overflow-hidden rounded-2xl">
+          <img
+            src={roxyPhoto.src}
+            alt={roxyPhoto.alt}
+            class="h-full w-full object-cover object-[center_20%]"
+            loading="eager"
+            fetchpriority="high"
+          />
         </div>
       </div>
     </div>
   </section>
 
-  <section class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <p class="text-center text-text-muted">
-      Home page sections coming next — intro, how I can help, approach, process, and CTA.
-    </p>
+  <!-- Intro -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div class="relative mx-auto w-full max-w-md lg:mx-0">
+        <FloralAccent variant="pink" class="absolute -left-4 bottom-6 z-0 hidden sm:block" />
+        <div class="relative z-10 aspect-[3/4] overflow-hidden rounded-2xl shadow-sm">
+          <img
+            src={roxyPhoto.src}
+            alt={roxyPhoto.alt}
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div>
+        <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">About Me</p>
+        <h2 class="text-3xl sm:text-4xl">{home.intro.greeting}</h2>
+        <div class="mt-6 space-y-4 text-lg leading-relaxed text-text-muted">
+          {home.intro.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        <div class="mt-8">
+          <Button href="/about" variant="secondary" size="md">
+            Learn More About Me
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How I Can Help -->
+  <section class="surface-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl sm:text-4xl">{home.help.title}</h2>
+        <p class="mt-4 text-lg text-text-muted">{home.help.intro}</p>
+      </div>
+
+      <ul class="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          home.help.items.map((item) => (
+            <li class="surface-card flex items-center gap-3 rounded-2xl border border-sage/20 px-5 py-4">
+              <span class="shrink-0 text-sage" aria-hidden="true">✓</span>
+              <span class="text-text-muted">{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-3xl sm:text-4xl">{home.approach.title}</h2>
+      <blockquote class="mt-6 border-l-4 border-sage pl-6 text-lg italic leading-relaxed text-text-muted">
+        {home.approach.quote}
+      </blockquote>
+
+      <ul class="mt-8 space-y-3">
+        {
+          home.approach.outcomes.map((outcome) => (
+            <li class="flex gap-3 text-lg text-text-muted">
+              <span class="mt-1 shrink-0 text-terracotta" aria-hidden="true">→</span>
+              <span>{outcome}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        {
+          home.approach.modalities.map((modality) => (
+            <span class="rounded-full border border-sage/25 bg-cream/45 px-4 py-2 text-sm text-text-muted backdrop-blur-sm">
+              {modality}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="surface-cream">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl sm:text-4xl">{home.process.title}</h2>
+        <p class="mt-4 text-lg text-text-muted">{home.process.intro}</p>
+      </div>
+
+      <ol class="mx-auto mt-12 grid max-w-5xl gap-8 md:grid-cols-3">
+        {
+          home.process.steps.map((step) => (
+            <li class="surface-card rounded-2xl border border-sage/20 p-6 text-center md:text-left">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sage/20 font-heading text-xl text-sage-dark">
+                {step.number}
+              </span>
+              <h3 class="mt-4 text-xl">{step.title}</h3>
+              <p class="mt-2 leading-relaxed text-text-muted">{step.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Reviews (coming soon) -->
+  <section class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+    <h2 class="text-3xl sm:text-4xl">{home.reviews.title}</h2>
+    <div class="surface-card mx-auto mt-8 max-w-xl rounded-2xl border border-sage/20 px-8 py-10">
+      <p class="text-lg text-text-muted">{home.reviews.message}</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="surface-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+      <h2 class="text-3xl sm:text-4xl">{home.cta.title}</h2>
+      <p class="mt-4 text-lg text-text-muted">{home.cta.text}</p>
+      <div class="mt-8">
+        <Button href={site.calendlyUrl} size="lg">
+          Schedule Your Free Consultation
+        </Button>
+      </div>
+    </div>
   </section>
 </BaseLayout>

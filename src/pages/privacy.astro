@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site.ts';
+import { privacy } from '../content/privacy.ts';
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description={`Privacy policy for ${site.name}'s therapy practice website — what we collect, how we use it, and your choices.`}
+>
+  <section class="surface-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+      <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">Legal</p>
+      <h1 class="text-4xl sm:text-5xl">{privacy.hero.title}</h1>
+      <p class="mt-6 text-lg leading-relaxed text-text-muted">{privacy.hero.intro}</p>
+      <p class="mt-4 text-sm text-text-muted">Last updated: {privacy.lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+    <div class="space-y-12">
+      {
+        privacy.sections.map((section) => (
+          <div>
+            <h2 class="text-2xl sm:text-3xl">{section.title}</h2>
+            {
+              section.paragraphs?.map((paragraph) => (
+                <p class="mt-4 leading-relaxed text-text-muted">{paragraph}</p>
+              ))
+            }
+            {
+              section.list && (
+                <ul class="mt-4 space-y-2">
+                  {section.list.map((item) => (
+                    <li class="flex gap-3 text-text-muted">
+                      <span class="mt-1 shrink-0 text-sage" aria-hidden="true">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+            {section.afterList && <p class="mt-4 leading-relaxed text-text-muted">{section.afterList}</p>}
+            {
+              section.title === 'Contact' && (
+                <ul class="mt-4 space-y-2 text-text-muted">
+                  <li>
+                    <span class="font-medium text-text">{site.name}</span>
+                  </li>
+                  <li>
+                    Email:{' '}
+                    <a href={`mailto:${site.contact.email}`} class="text-terracotta hover:underline">
+                      {site.contact.email}
+                    </a>
+                  </li>
+                  <li>
+                    Phone:{' '}
+                    <a href={`tel:${site.contact.phoneHref}`} class="text-terracotta hover:underline">
+                      {site.contact.phone}
+                    </a>
+                  </li>
+                </ul>
+              )
+            }
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
