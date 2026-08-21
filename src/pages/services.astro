@@ -11,7 +11,7 @@ import { services } from '../content/services.ts';
   description={`Individual and couples therapy with ${site.name}. Virtual sessions focused on anxiety, trauma, relationships, and lasting change.`}
 >
   <!-- Hero -->
-  <section class="bg-cream">
+  <section class="surface-cream">
     <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
       <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">How I Can Help</p>
       <h1 class="text-4xl sm:text-5xl">{services.hero.title}</h1>
@@ -58,7 +58,7 @@ import { services } from '../content/services.ts';
   </section>
 
   <!-- Couples Therapy -->
-  <section class="bg-cream">
+  <section class="surface-cream">
     <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
       <div class="mx-auto max-w-3xl">
         <h2 class="text-3xl sm:text-4xl">{services.couples.title}</h2>
@@ -68,7 +68,7 @@ import { services } from '../content/services.ts';
       <ul class="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           services.couples.topics.map((topic) => (
-            <li class="rounded-2xl border border-sage/20 bg-warm-white p-6">
+            <li class="surface-card rounded-2xl border border-sage/20 p-6">
               <h3 class="text-xl">{topic.title}</h3>
               <p class="mt-2 leading-relaxed text-text-muted">{topic.description}</p>
             </li>
@@ -88,7 +88,7 @@ import { services } from '../content/services.ts';
     <ul class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-3">
       {
         services.specialties.items.map((item) => (
-          <li class="rounded-full border border-sage/25 bg-cream px-5 py-2.5 text-text-muted">
+          <li class="rounded-full border border-sage/25 bg-cream/45 px-5 py-2.5 text-text-muted backdrop-blur-sm">
             {item}
           </li>
         ))
@@ -104,7 +104,7 @@ import { services } from '../content/services.ts';
   </section>
 
   <!-- Therapy Approaches -->
-  <section class="bg-cream">
+  <section class="surface-cream">
     <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <h2 class="text-3xl sm:text-4xl">{services.approaches.title}</h2>
       <p class="mt-4 text-lg text-text-muted">{services.approaches.intro}</p>

@@ -6,9 +6,8 @@ export const site = {
     'Therapy for individuals and couples ready to create meaningful change. Virtual sessions available.',
   url: 'https://roxytherapist.com',
 
-  // Set PUBLIC_CALENDLY_URL in .env or Vercel env vars once Calendly is ready
   calendlyUrl:
-    import.meta.env.PUBLIC_CALENDLY_URL ?? 'https://calendly.com/your-calendly-link',
+    import.meta.env.PUBLIC_CALENDLY_URL ?? 'https://calendly.com/roxylcsw',
 
   contact: {
     phone: '(240) 489-1316',

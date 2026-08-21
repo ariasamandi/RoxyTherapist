@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
+import FloralAccent from '../components/FloralAccent.astro';
 import { site } from '../config/site.ts';
 import { contact } from '../content/contact.ts';
 ---
@@ -9,14 +10,18 @@ import { contact } from '../content/contact.ts';
   title="Contact"
   description={`Contact ${site.name} to schedule a virtual therapy consultation. Phone, email, and online booking available.`}
 >
-  <section class="bg-cream">
-    <div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
-      <div
-        class="flex aspect-[3/4] max-w-md items-center justify-center rounded-2xl bg-dusty-blue/20 lg:mx-auto lg:w-full"
-        role="img"
-        aria-label={`Photo of ${site.name}`}
-      >
-        <p class="px-6 text-center text-sm text-text-muted">Professional photo</p>
+  <section class="surface-cream relative overflow-hidden">
+    <FloralAccent variant="yellow" class="absolute right-8 top-16 hidden sm:block" />
+    <div class="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div class="relative lg:mx-auto lg:w-full lg:max-w-md">
+        <FloralAccent variant="blue" class="absolute -right-4 top-8 z-0 hidden sm:block" />
+        <div
+          class="surface-photo relative z-10 flex aspect-[3/4] items-center justify-center rounded-2xl"
+          role="img"
+          aria-label={`Photo of ${site.name}`}
+        >
+          <p class="px-6 text-center text-sm text-text-muted">Professional photo</p>
+        </div>
       </div>
 
       <div>

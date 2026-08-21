@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
+import FloralAccent from '../components/FloralAccent.astro';
 import { site } from '../config/site.ts';
 import { about } from '../content/about.ts';
 ---
@@ -10,14 +11,18 @@ import { about } from '../content/about.ts';
   description={`Learn about ${site.name} — background, approach, and what to expect from virtual therapy.`}
 >
   <!-- Hero -->
-  <section class="bg-cream">
-    <div class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
-      <div
-        class="order-2 flex aspect-[3/4] max-w-md items-center justify-center rounded-2xl bg-dusty-blue/20 lg:order-1 lg:mx-auto lg:w-full"
-        role="img"
-        aria-label="Professional photo of Roxy Mandisen"
-      >
-        <p class="px-6 text-center text-sm text-text-muted">Professional photo</p>
+  <section class="surface-cream relative overflow-hidden">
+    <FloralAccent variant="lavender" class="absolute right-6 top-10 hidden sm:block" />
+    <div class="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div class="relative order-2 lg:order-1 lg:mx-auto lg:w-full lg:max-w-md">
+        <FloralAccent variant="pink" class="absolute -left-6 bottom-10 z-0 hidden sm:block" />
+        <div
+          class="surface-photo relative z-10 flex aspect-[3/4] items-center justify-center rounded-2xl"
+          role="img"
+          aria-label="Professional photo of Roxy Mandisen"
+        >
+          <p class="px-6 text-center text-sm text-text-muted">Professional photo</p>
+        </div>
       </div>
 
       <div class="order-1 lg:order-2">
@@ -37,7 +42,7 @@ import { about } from '../content/about.ts';
   </section>
 
   <!-- Why therapy -->
-  <section class="bg-cream">
+  <section class="surface-cream">
     <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <h2 class="text-3xl sm:text-4xl">{about.whyTherapy.title}</h2>
       <div class="mt-6 space-y-5 text-lg leading-relaxed text-text-muted">
@@ -66,7 +71,7 @@ import { about } from '../content/about.ts';
   </section>
 
   <!-- Personal details -->
-  <section class="bg-cream">
+  <section class="surface-cream">
     <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-3xl sm:text-4xl">{about.personal.title}</h2>
@@ -76,7 +81,7 @@ import { about } from '../content/about.ts';
       <ul class="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           about.personal.interests.map((interest) => (
-            <li class="rounded-2xl border border-sage/20 bg-warm-white p-6">
+            <li class="surface-card rounded-2xl border border-sage/20 p-6">
               <h3 class="text-xl">{interest.label}</h3>
               <p class="mt-2 text-text-muted">{interest.description}</p>
             </li>

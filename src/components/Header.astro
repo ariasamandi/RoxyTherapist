@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import FloralAccent from './FloralAccent.astro';
 import { site } from '../config/site.ts';
 
 const currentPath = Astro.url.pathname;
@@ -7,9 +8,11 @@ const currentPath = Astro.url.pathname;
 
 <header
   id="site-header"
-  class="sticky top-0 z-50 border-b border-sage/15 bg-warm-white/95 backdrop-blur-sm"
+  class="surface-header sticky top-0 z-50 overflow-hidden border-b border-sage/15"
 >
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+  <FloralAccent variant="yellow" class="absolute -left-1 top-0 !w-10 opacity-70" />
+  <FloralAccent variant="lavender" class="absolute right-32 top-0 hidden !w-9 opacity-60 md:block" />
+  <div class="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
     <a href="/" class="font-heading text-2xl text-text transition-opacity hover:opacity-80">
       {site.name}
     </a>
@@ -50,7 +53,7 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden border-t border-sage/15 lg:hidden" aria-label="Mobile navigation">
+  <div id="mobile-menu" class="hidden border-t border-sage/15 surface-header lg:hidden" aria-label="Mobile navigation">
     <nav class="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
       {
         site.nav.map((item) => (

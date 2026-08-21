@@ -22,6 +22,10 @@
 
   body {
     @apply bg-warm-white font-body text-text antialiased;
+    background-image:
+      radial-gradient(ellipse 100% 80% at 50% 0%, rgba(250, 247, 242, 0.9) 0%, transparent 70%),
+      linear-gradient(180deg, var(--color-warm-white) 0%, var(--color-cream) 100%);
+    background-attachment: fixed;
   }
 
   h1,
@@ -29,5 +33,27 @@
   h3,
   h4 {
     @apply font-heading font-medium text-text;
+  }
+}
+
+@layer components {
+  .surface-cream {
+    @apply bg-cream/55 backdrop-blur-sm;
+  }
+
+  .surface-header {
+    @apply bg-warm-white/60 backdrop-blur-md;
+  }
+
+  .surface-footer {
+    @apply bg-cream/55 backdrop-blur-sm;
+  }
+
+  .surface-card {
+    @apply bg-warm-white/70 backdrop-blur-sm;
+  }
+
+  .surface-photo {
+    @apply border border-dusty-blue/25 bg-dusty-blue/8 backdrop-blur-sm;
   }
 }
