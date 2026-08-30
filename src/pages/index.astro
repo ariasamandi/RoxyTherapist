@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import FloralAccent from '../components/FloralAccent.astro';
 import { site } from '../config/site.ts';
-import { home, roxyPhoto } from '../content/home.ts';
+import { home, heroPhoto, roxyPhoto } from '../content/home.ts';
 ---
 
 <BaseLayout
@@ -35,11 +35,11 @@ import { home, roxyPhoto } from '../content/home.ts';
       <div class="relative">
         <FloralAccent variant="blue" class="absolute -left-4 bottom-8 z-0 hidden sm:block" />
         <FloralAccent variant="yellow" class="absolute -right-2 top-4 z-0 hidden sm:block" />
-        <div class="surface-photo relative z-10 aspect-[4/3] overflow-hidden rounded-2xl">
+        <div class="surface-photo relative z-10 aspect-[3/2] overflow-hidden rounded-2xl">
           <img
-            src={roxyPhoto.src}
-            alt={roxyPhoto.alt}
-            class="h-full w-full object-cover object-[center_20%]"
+            src={heroPhoto.src}
+            alt={heroPhoto.alt}
+            class="h-full w-full object-cover object-center"
             loading="eager"
             fetchpriority="high"
           />

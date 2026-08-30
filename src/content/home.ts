@@ -69,6 +69,11 @@ export const home = {
   },
 } as const;
 
+export const heroPhoto = {
+  src: '/images/hero-ocean.jpg',
+  alt: 'Calm ocean at sunset with a pink sky and teal water',
+} as const;
+
 export const roxyPhoto = {
   src: '/images/roxy-mandisen.jpg',
   alt: 'Roxy Mandisen, licensed clinical social worker',
