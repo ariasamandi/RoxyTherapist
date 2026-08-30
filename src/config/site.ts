@@ -1,13 +1,17 @@
+import { CALENDLY_URL, SITE_URL } from 'astro:env/server';
+
+const envUrl = (value: string | undefined, fallback: string) =>
+  value?.trim() || fallback;
+
 export const site = {
   name: 'Roxy Mandisen',
   title: 'Roxy Mandisen',
   tagline: 'Helping you find healing, balance, and hope.',
   description:
     'Therapy for individuals and couples ready to create meaningful change. Virtual sessions available.',
-  url: import.meta.env.PUBLIC_SITE_URL ?? 'https://roxytherapist.com',
+  url: envUrl(SITE_URL, 'https://mendandbloomtherapy.com'),
 
-  calendlyUrl:
-    import.meta.env.PUBLIC_CALENDLY_URL ?? 'https://calendly.com/roxylcsw',
+  calendlyUrl: envUrl(CALENDLY_URL, 'https://calendly.com/roxylcsw'),
 
   contact: {
     phone: '(240) 489-1316',
