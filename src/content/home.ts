@@ -74,6 +74,11 @@ export const heroPhoto = {
   alt: 'Cherry blossoms on a branch against a clear blue sky',
 } as const;
 
+export const homeIntroPhoto = {
+  src: '/images/roxy-home-intro.png',
+  alt: 'Roxy Mandisen, licensed clinical social worker',
+} as const;
+
 export const roxyPhoto = {
   src: '/images/roxy-mandisen.jpg',
   alt: 'Roxy Mandisen, licensed clinical social worker',
