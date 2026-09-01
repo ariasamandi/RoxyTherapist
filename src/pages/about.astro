@@ -17,11 +17,11 @@ import { roxyPhoto } from '../content/home.ts';
     <div class="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
       <div class="relative order-2 lg:order-1 lg:mx-auto lg:w-full lg:max-w-md">
         <FloralAccent variant="pink" class="absolute -left-6 bottom-10 z-0 hidden sm:block" />
-        <div class="surface-photo relative z-10 aspect-[3/4] overflow-hidden rounded-2xl">
+        <div class="surface-photo relative z-10 aspect-[2/3] overflow-hidden rounded-2xl">
           <img
             src={roxyPhoto.src}
             alt={roxyPhoto.alt}
-            class="h-full w-full object-cover"
+            class="h-full w-full object-cover object-[center_20%]"
             loading="lazy"
           />
         </div>
@@ -53,54 +53,35 @@ import { roxyPhoto } from '../content/home.ts';
     </div>
   </section>
 
-  <!-- Philosophy -->
-  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-    <h2 class="text-3xl sm:text-4xl">{about.philosophy.title}</h2>
-    <p class="mt-6 text-lg leading-relaxed text-text-muted">{about.philosophy.intro}</p>
+  <!-- Personal details -->
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="text-3xl sm:text-4xl">{about.personal.title}</h2>
+      <p class="mt-4 text-lg text-text-muted">{about.personal.intro}</p>
+    </div>
 
-    <ul class="mt-8 space-y-4">
+    <ul class="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
-        about.philosophy.points.map((point) => (
-          <li class="flex gap-3 text-lg text-text-muted">
-            <span class="mt-1 shrink-0 text-sage" aria-hidden="true">✓</span>
-            <span>{point}</span>
+        about.personal.interests.map((interest) => (
+          <li class="surface-card rounded-2xl border border-sage/20 p-6">
+            <h3 class="text-xl">{interest.label}</h3>
+            <p class="mt-2 text-text-muted">{interest.description}</p>
           </li>
         ))
       }
     </ul>
-
-    <p class="mt-8 text-lg leading-relaxed text-text-muted">{about.philosophy.closing}</p>
-  </section>
-
-  <!-- Personal details -->
-  <section class="surface-cream">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl sm:text-4xl">{about.personal.title}</h2>
-        <p class="mt-4 text-lg text-text-muted">{about.personal.intro}</p>
-      </div>
-
-      <ul class="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          about.personal.interests.map((interest) => (
-            <li class="surface-card rounded-2xl border border-sage/20 p-6">
-              <h3 class="text-xl">{interest.label}</h3>
-              <p class="mt-2 text-text-muted">{interest.description}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
   </section>
 
   <!-- CTA -->
-  <section class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
-    <h2 class="text-3xl sm:text-4xl">{about.cta.title}</h2>
-    <p class="mt-4 text-lg text-text-muted">{about.cta.text}</p>
-    <div class="mt-8">
-      <Button href={site.calendlyUrl} size="lg">
-        Schedule a Free 15-Minute Consultation
-      </Button>
+  <section class="surface-cream">
+    <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+      <h2 class="text-3xl sm:text-4xl">{about.cta.title}</h2>
+      <p class="mt-4 text-lg text-text-muted">{about.cta.text}</p>
+      <div class="mt-8">
+        <Button href={site.calendlyUrl} size="lg">
+          Schedule a Free 15-Minute Consultation
+        </Button>
+      </div>
     </div>
   </section>
 </BaseLayout>

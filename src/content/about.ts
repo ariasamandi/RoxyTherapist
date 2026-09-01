@@ -21,21 +21,6 @@ export const about = {
     ],
   },
 
-  philosophy: {
-    title: 'My Approach',
-    intro:
-      "Therapy with me isn't about sitting in silence or only venting about your week. We work together to understand what's keeping you stuck, heal what needs healing, and build practical skills for lasting change.",
-    points: [
-      'Feel less overwhelmed by anxiety and stress',
-      'Build healthier, more fulfilling relationships',
-      'Heal from painful experiences at your own pace',
-      'Develop confidence and self-compassion',
-      'Learn tools you can use in everyday life',
-    ],
-    closing:
-      "I draw from evidence-based approaches including CBT, EMDR, positive psychology, and mindfulness — but always tailored to who you are and what you need.",
-  },
-
   personal: {
     title: 'A Little About Me',
     intro:

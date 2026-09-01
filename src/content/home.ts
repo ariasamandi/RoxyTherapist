@@ -3,7 +3,7 @@ export const home = {
     greeting: "Hi, I'm Roxy.",
     paragraphs: [
       "I'm a licensed clinical social worker passionate about helping people feel more grounded, connected, and hopeful — even when life feels overwhelming.",
-      "My approach is warm, collaborative, and practical. I work with individuals and couples who want to understand themselves more deeply, heal from difficult experiences, and build skills that last long after therapy ends.",
+      "I am one of the few therapists that is trained in EMDR and my approach is warm, collaborative, and practical. I work with individuals and couples who want to understand themselves more deeply, heal from difficult experiences, and build skills that last long after therapy ends.",
       "Whether you're facing anxiety, relationship challenges, or a major life transition, you don't have to navigate it alone.",
     ],
   },
@@ -23,7 +23,7 @@ export const home = {
   },
 
   approach: {
-    title: 'Your Approach',
+    title: 'My Approach',
     quote:
       "Therapy isn't just about talking through problems. Together we'll understand what's keeping you stuck, develop practical tools, heal underlying wounds, and create lasting change.",
     modalities: ['CBT', 'EMDR', 'Positive Psychology', 'Mindfulness', 'Couples Therapy'],
@@ -70,8 +70,8 @@ export const home = {
 } as const;
 
 export const heroPhoto = {
-  src: '/images/hero-ocean.jpg',
-  alt: 'Calm ocean at sunset with a pink sky and teal water',
+  src: '/images/hero-blossoms.jpg',
+  alt: 'Cherry blossoms on a branch against a clear blue sky',
 } as const;
 
 export const roxyPhoto = {

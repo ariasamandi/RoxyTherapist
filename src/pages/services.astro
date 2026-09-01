@@ -78,33 +78,8 @@ import { services } from '../content/services.ts';
     </div>
   </section>
 
-  <!-- Specialties -->
-  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-    <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-3xl sm:text-4xl">{services.specialties.title}</h2>
-      <p class="mt-4 text-lg text-text-muted">{services.specialties.intro}</p>
-    </div>
-
-    <ul class="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-3">
-      {
-        services.specialties.items.map((item) => (
-          <li class="rounded-full border border-sage/25 bg-cream/45 px-5 py-2.5 text-text-muted backdrop-blur-sm">
-            {item}
-          </li>
-        ))
-      }
-    </ul>
-
-    <p class="mx-auto mt-8 max-w-xl text-center text-sm text-text-muted">
-      Want more detail?
-      <a href="/specialties" class="text-terracotta underline-offset-2 hover:underline">
-        Explore specialties
-      </a>
-    </p>
-  </section>
-
   <!-- Therapy Approaches -->
-  <section class="surface-cream">
+  <section>
     <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
       <h2 class="text-3xl sm:text-4xl">{services.approaches.title}</h2>
       <p class="mt-4 text-lg text-text-muted">{services.approaches.intro}</p>

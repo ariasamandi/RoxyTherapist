@@ -4,7 +4,6 @@ import Button from '../components/Button.astro';
 import FloralAccent from '../components/FloralAccent.astro';
 import { site } from '../config/site.ts';
 import { contact } from '../content/contact.ts';
-import { roxyPhoto } from '../content/home.ts';
 ---
 
 <BaseLayout
@@ -13,54 +12,40 @@ import { roxyPhoto } from '../content/home.ts';
 >
   <section class="surface-cream relative overflow-hidden">
     <FloralAccent variant="yellow" class="absolute right-8 top-16 hidden sm:block" />
-    <div class="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
-      <div class="relative lg:mx-auto lg:w-full lg:max-w-md">
-        <FloralAccent variant="blue" class="absolute -right-4 top-8 z-0 hidden sm:block" />
-        <div class="surface-photo relative z-10 aspect-[3/4] overflow-hidden rounded-2xl">
-          <img
-            src={roxyPhoto.src}
-            alt={roxyPhoto.alt}
-            class="h-full w-full object-cover"
-            loading="lazy"
-          />
-        </div>
-      </div>
+    <div class="relative mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
+      <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">Get in Touch</p>
+      <h1 class="text-4xl sm:text-5xl">{contact.hero.title}</h1>
+      <p class="mt-6 text-lg leading-relaxed text-text-muted">{contact.hero.intro}</p>
 
-      <div>
-        <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">Get in Touch</p>
-        <h1 class="text-4xl sm:text-5xl">{contact.hero.title}</h1>
-        <p class="mt-6 text-lg leading-relaxed text-text-muted">{contact.hero.intro}</p>
+      <ul class="mt-10 space-y-6">
+        <li>
+          <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Phone</p>
+          <a
+            href={`tel:${site.contact.phoneHref}`}
+            class="mt-1 block text-xl text-text transition-colors hover:text-terracotta"
+          >
+            {site.contact.phone}
+          </a>
+        </li>
+        <li>
+          <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Email</p>
+          <a
+            href={`mailto:${site.contact.email}`}
+            class="mt-1 block text-xl text-text transition-colors hover:text-terracotta"
+          >
+            {site.contact.email}
+          </a>
+        </li>
+        <li>
+          <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Location</p>
+          <p class="mt-1 text-xl text-text">{site.contact.location}</p>
+        </li>
+      </ul>
 
-        <ul class="mt-10 space-y-6">
-          <li>
-            <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Phone</p>
-            <a
-              href={`tel:${site.contact.phoneHref}`}
-              class="mt-1 block text-xl text-text transition-colors hover:text-terracotta"
-            >
-              {site.contact.phone}
-            </a>
-          </li>
-          <li>
-            <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Email</p>
-            <a
-              href={`mailto:${site.contact.email}`}
-              class="mt-1 block text-xl text-text transition-colors hover:text-terracotta"
-            >
-              {site.contact.email}
-            </a>
-          </li>
-          <li>
-            <p class="text-sm font-medium uppercase tracking-wider text-sage-dark">Location</p>
-            <p class="mt-1 text-xl text-text">{site.contact.location}</p>
-          </li>
-        </ul>
-
-        <div class="mt-10">
-          <Button href={site.calendlyUrl} size="lg">
-            {site.cta.label}
-          </Button>
-        </div>
+      <div class="mt-10">
+        <Button href={site.calendlyUrl} size="lg">
+          {site.cta.label}
+        </Button>
       </div>
     </div>
   </section>

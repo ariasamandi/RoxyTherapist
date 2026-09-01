@@ -65,20 +65,6 @@ export const services = {
     ],
   },
 
-  specialties: {
-    title: 'Specialties',
-    intro:
-      "These are areas where I have focused experience and training. Every client is unique — we'll explore what matters most to you.",
-    items: [
-      'Anxiety',
-      'Trauma',
-      'Self-esteem',
-      'Relationship issues',
-      'Life transitions',
-      'Stress',
-    ],
-  },
-
   approaches: {
     title: 'Therapy Approaches',
     intro:
@@ -103,10 +89,10 @@ export const services = {
           'Build on your strengths and create a more fulfilling life.',
       },
       {
-        title: 'Mindfulness',
-        shortTitle: 'Mindfulness',
+        title: 'Imago (Imago Relationship Therapy)',
+        shortTitle: 'Imago',
         description:
-          'Develop greater awareness and emotional balance.',
+          'Use structured dialogue to build empathy, heal relational wounds, and reconnect as a couple.',
       },
     ],
   },
