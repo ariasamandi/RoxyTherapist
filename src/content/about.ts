@@ -1,10 +1,4 @@
 export const about = {
-  hero: {
-    greeting: "Hi, I'm Roxy.",
-    intro:
-      "I'm a licensed clinical social worker who helps individuals and couples move through life's challenges with greater clarity, confidence, and connection. My work is grounded in warmth, collaboration, and practical tools you can use long after our sessions end.",
-  },
-
   story: {
     title: 'My Story',
     paragraphs: [

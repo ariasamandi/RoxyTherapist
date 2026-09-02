@@ -13,9 +13,10 @@ import { roxyPhoto } from '../content/home.ts';
 >
   <!-- Hero -->
   <section class="surface-cream relative overflow-hidden">
+    <h1 class="sr-only">About Me</h1>
     <FloralAccent variant="lavender" class="absolute right-6 top-10 hidden sm:block" />
-    <div class="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
-      <div class="relative order-2 lg:order-1 lg:mx-auto lg:w-full lg:max-w-md">
+    <div class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <div class="relative mx-auto w-full max-w-md">
         <FloralAccent variant="pink" class="absolute -left-6 bottom-10 z-0 hidden sm:block" />
         <div class="surface-photo relative z-10 aspect-[2/3] overflow-hidden rounded-2xl">
           <img
@@ -25,12 +26,6 @@ import { roxyPhoto } from '../content/home.ts';
             loading="lazy"
           />
         </div>
-      </div>
-
-      <div class="order-1 lg:order-2">
-        <p class="mb-3 text-sm font-medium uppercase tracking-wider text-sage-dark">About Me</p>
-        <h1 class="text-4xl leading-tight sm:text-5xl">{about.hero.greeting}</h1>
-        <p class="mt-6 text-lg leading-relaxed text-text-muted">{about.hero.intro}</p>
       </div>
     </div>
   </section>

@@ -5,7 +5,7 @@ export const privacy = {
       'Your privacy matters. This policy explains what information this website collects, how it is used, and your choices.',
   },
 
-  lastUpdated: 'August 20, 2026',
+  lastUpdated: 'September 2, 2026',
 
   sections: [
     {
@@ -24,6 +24,7 @@ export const privacy = {
         'Pages visited and general usage data (via privacy-focused analytics)',
         'Browser type, device type, and approximate location (city/region level)',
         'Referring website or search terms that led you here',
+        'Advertising measurement data if you arrived from a Google ad (via the Google tag)',
       ],
       afterList:
         'This website does not include a contact form and does not ask you to submit clinical or health information online.',
@@ -41,6 +42,7 @@ export const privacy = {
         'Understand how visitors use the website so we can improve it',
         'Respond to inquiries you initiate by email or phone',
         'Facilitate consultation scheduling through Calendly',
+        'Measure whether Google ads led people to this website',
       ],
     },
     {
@@ -50,6 +52,7 @@ export const privacy = {
       ],
       list: [
         'Vercel Analytics — lightweight, privacy-friendly website analytics',
+        'Google Ads (gtag.js) — measures visits from Google ads so we can understand advertising results',
         'Calendly — online scheduling for consultations',
         'Google Fonts — typography loaded when you visit the site',
       ],
@@ -60,6 +63,7 @@ export const privacy = {
       title: 'Cookies & Analytics',
       paragraphs: [
         'We use lightweight analytics to understand general traffic patterns. Vercel Analytics is designed to be privacy-friendly and does not use cookies for tracking across other websites.',
+        'If you visit from a Google ad, the Google tag may set cookies used to measure ad performance. This site is not a patient portal and this advertising measurement does not include clinical or health information you share in therapy.',
         'You can use browser settings to block cookies or use privacy-focused browser extensions if you prefer.',
       ],
     },
